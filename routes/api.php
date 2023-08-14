@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Task\TaskController;
 
 /*
@@ -30,7 +31,7 @@ Route::prefix('auth')->group(function () {
 Route::group(['middleware' => 'auth:api'], function () {
 
     // Get User Data
-    Route::get('/user', [PublicUserController::class, 'getUser']);
+    Route::get('/user', [UserController::class, 'index']);
 
     // Tasks Routes
     Route::Resource('tasks', TaskController::class)->except(['index']);

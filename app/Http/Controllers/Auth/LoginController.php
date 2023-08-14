@@ -27,6 +27,7 @@ class LoginController extends Controller
                 $token = $user->createToken('app')->accessToken;
 
                 return response([
+                    'status' => true,
                     'message' => "Successfully Login",
                     'token' => $token,
                     'user' => $user,
@@ -34,10 +35,12 @@ class LoginController extends Controller
             }
         } catch (Exception $exception) {
             return response([
+                'status' => false,
                 'message' => $exception->getMessage()
             ], 400);
         }
         return response([
+            'status' => false,
             'message' => 'Invalid Email or Password!',
         ], 401);
     } // End Method
