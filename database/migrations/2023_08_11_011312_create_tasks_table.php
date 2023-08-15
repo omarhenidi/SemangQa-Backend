@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('task');
             $table->timestamp('start_time')->nullable();
             $table->timestamp('end_time')->nullable();
+            $table->string('color')->nullable();
             $table->string('image');
             $table->timestamps();
         });

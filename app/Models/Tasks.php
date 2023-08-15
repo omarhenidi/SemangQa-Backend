@@ -13,6 +13,6 @@ class Tasks extends Model
      *
      * @var array
      */
-    protected $fillable = ['task', 'start_time', 'end_time', 'image'];
+    protected $fillable = ['task', 'start_time', 'end_time', 'color', 'image'];
 
 }

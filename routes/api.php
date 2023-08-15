@@ -28,6 +28,8 @@ Route::prefix('auth')->group(function () {
     Route::post('login', [LoginController::class, 'login']);
 });
 
+
+
 Route::group(['middleware' => 'auth:api'], function () {
 
     // Get User Data
@@ -35,6 +37,9 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     // Tasks Routes
     Route::Resource('tasks', TaskController::class)->except(['index']);
+
     Route::get('tasks', [TaskController::class, 'index']);
+
+    Route::post('task/{id}', [TaskController::class, 'updateTask']);
 
 });
